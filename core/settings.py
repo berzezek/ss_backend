@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from datetime import timedelta
 
@@ -15,7 +16,8 @@ SECRET_KEY = "django-insecure-vg%$_+a(r54vn806n7-grn^*g47gp8w^p^wzdhu3^ec6^3!16n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
+
 
 
 # Application definition
